@@ -1,7 +1,7 @@
 project "GLFW"
     kind "StaticLib"
     language "C"
-    staticruntime "On"
+    cppdialect "C++20"
     warnings "Off"
 
     targetdir ("Binaries/" .. outputdir)
@@ -100,19 +100,14 @@ project "GLFW"
 
     filter "configurations:Debug"
         runtime "Debug"
-        symbols "on"
+        symbols "On"
 
     filter { "system:windows", "configurations:Debug-AS" }
         runtime "Debug"
-        symbols "on"
+        symbols "On"
         sanitize { "Address" }
         flags { "NoRuntimeChecks", "NoIncrementalLink" }
 
     filter "configurations:Release"
         runtime "Release"
-        optimize "speed"
-
-    filter "configurations:Dist"
-        runtime "Release"
-        optimize "speed"
-        symbols "off"
+        optimize "On"
