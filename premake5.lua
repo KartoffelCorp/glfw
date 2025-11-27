@@ -102,12 +102,6 @@ project "GLFW"
         runtime "Debug"
         symbols "On"
 
-    filter { "system:windows", "configurations:Debug-AS" }
-        runtime "Debug"
-        symbols "On"
-        sanitize { "Address" }
-        flags { "NoRuntimeChecks", "NoIncrementalLink" }
-
     filter "configurations:Release"
         runtime "Release"
         optimize "On"
